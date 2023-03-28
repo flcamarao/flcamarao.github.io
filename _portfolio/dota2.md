@@ -1904,4 +1904,429 @@ A detailed description of each player-specific feature can be found in the provi
 | **obs_placed** | Number of observer-wards placed by a player (int64). [Observer Ward](https://dota2.gamepedia.com/Observer_Ward), an invisible watcher that gives ground vision in a 1600 radius to your team. Lasts 6 minutes. |
 | **sen_placed** | Number of sentry-wards placed by a player (int64) [Sentry Ward](https://dota2.gamepedia.com/Sentry_Ward), an invisible watcher that grants True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within a radius. Lasts 6 minutes.|
 
+## Data Cleaning
+```python
+train_data.info()
+train_data.describe()
+train_data.isnull().sum()
+train_data.drop_duplicates()
+```
+
+## Exploratory Data Analysis
+```python
+# Create a countplot with a custom color palette
+sns.countplot(data=train_data, x='lobby_type', order=train_data['lobby_type'].value_counts().index, palette='Set2');
+
+# Add a title to the plot
+plt.title('Counts of games in lobby type');
+
+# Show the plot
+plt.show()
+```
+<img src='/images/dota2/5.png'>
+
+```python
+# Create a countplot with the 'Set2' color palette for game modes
+sns.countplot(data=train_data, x='game_mode',
+              order=train_data['game_mode'].value_counts().index, palette='Set2')
+
+# Add a title to the plot
+plt.title('Counts of games in different modes')
+
+# Show the plot
+plt.show()
+
+# Filter the dataset to only include the most common game mode
+most_common_game_mode = train_data['game_mode'].value_counts().idxmax()
+filtered_train_data = train_data[train_data['game_mode'] == most_common_game_mode]
+```
+<img src='/images/dota2/6.png'>
+
+**Insight**
+- Different lobby types and game modes have distinct criteria; therefore, selecting the lobby type and game mode with the highest count ensures a balanced dataset with more consistent datapoints. This approach minimizes potential biases and variations that could arise from considering multiple lobby types and game modes, leading to more reliable predictions and analysis.
+
+## Data Preprocessing
+
+### Feature Transformation
+```python
+# remove lobby_type with lower counts
+train_y['lobby_type'] = train_data['lobby_type']
+train_data = train_data[train_data['lobby_type'] == 7]
+test_data = test_data[test_data['lobby_type'] == 7]
+train_y = train_y[train_y['lobby_type'] == 7]
+
+# remove game_mode with lower counts
+train_y['game_mode'] = train_data['game_mode']
+train_data = train_data[train_data['game_mode'] == 22]
+test_data = test_data[test_data['game_mode'] == 22]
+train_y = train_y[train_y['game_mode'] == 22]
+# drop lobby_type and game_mode for train_y
+train_y = train_y.drop(columns=['lobby_type', 'game_mode'])
+# mapping win and lose values
+train_y = train_y['radiant_win'].map({True: 1, False:0})
+
+# Get the unique values of 'radiant_win' column
+unique_vals = train_y.reset_index()['radiant_win'].unique()
+
+# Get the count of win for each unique value of 'radiant_win'
+win_counts = train_y.reset_index()['radiant_win'].value_counts()
+
+# Create a bar plot with the 'Set2' color palette for Dire and Radiant wins
+sns.barplot(x=unique_vals, y=win_counts, palette='Set2')
+
+# Set the x-axis tick labels to 'Dire Win' and 'Radiant Win'
+plt.xticks([0, 1], labels=['Dire Win', 'Radiant Win'])
+
+# Add labels to the x- and y-axes and a title to the plot
+plt.xlabel('Dire & Radiant')
+plt.ylabel('Win Counts')
+plt.title('Dire vs Radiant Win Counts')
+
+# Show the plot
+plt.show()
+```
+
+<img src='/images/dota2/7.png'>
+
+### Feature Engineering
+```python
+# combing all individual character features into a team based features
+feature_names = train_data.columns
+num = []
+for y in range(24):
+    for i in [feature_names[feature_names.str.contains("r"+str(i)) == True] for i in range(1,6)]:
+        num.append(i[y])
+    col = num[0].split("_")[1]
+    train_data['r_'+col] = train_data[num].sum(axis=1)
+    test_data['r_'+col] = test_data[num].sum(axis=1)
+    
+    # dropping individual features
+    train_data.drop(columns=num, inplace=True)
+    test_data.drop(columns=num, inplace=True)
+    num = []
+    
+for y in range(24):
+    for i in [feature_names[feature_names.str.contains("d"+str(i)) == True] for i in range(1,6)]:
+        num.append(i[y])
+    col = num[0].split("_")[1]
+    train_data['d_'+col] = train_data[num].sum(axis=1)
+    test_data['d_'+col] = test_data[num].sum(axis=1)
+    
+    # dropping individual features
+    train_data.drop(columns=num, inplace=True)
+    test_data.drop(columns=num, inplace=True)
+    num = []
+```
+
+### Feature Selection
+```python
+# what features to be used
+to_load = (['r_kills', 'r_deaths', 'r_assists', 'r_denies', 'r_lh', 'r_gold',
+            'd_kills', 'd_deaths', 'd_assists', 'd_denies', 'd_lh', 'd_gold'])
+train_X = train_data[to_load]
+test_X = test_data[to_load]
+
+# reduced the datapoints for the interest of runtime and
+# to show the significance of the models
+feature_names = train_X.columns
+train_sample = int(train_X.shape[0]/2)
+test_sample = int(test_X.shape[0]/2)
+
+# getting sample size
+train_X = train_X.sample(train_sample, random_state=3)
+train_y = train_y.sample(train_sample, random_state=3)
+test_X = test_X.sample(test_sample, random_state=3)
+train_X
+```
+
+### Data Scaling
+```python
+# Scaling
+scaler = StandardScaler()
+train_X_scaled = scaler.fit_transform(train_X)
+test_X_scaled = scaler.fit_transform(test_X)
+```
+<img src='/images/dota2/8.png'>
+    
+## Final Data
+```python
+# scaled data
+train_X_scaled # for train value
+test_X_scaled # for test value
+
+# original data
+train_X # for train value
+test_X # for test value
+
+# output to csv
+train_X.to_csv('train_X.csv')
+test_X.to_csv('test_X.csv')
+train_y.to_csv('train_y.csv')
+```
+
+# RESULTS AND DISCUSSION
+
+## Auto ML Simulation
+```python
+# Select methods
+methods = ['kNN', 'Logistic (L1)', 'Logistic (L2)', 'Decision Tree',
+           'RF Classifier', 'GB Classifier', 'XGB Classifier',
+           'AdaBoost DT', 'LightGBM Classifier', 'CatBoost Classifier']
+
+# Perform training and testing
+ml_models = MLModels.run_classifier(
+    train_X_scaled, train_y, feature_names, task='C',
+    use_methods=methods, n_trials=2, tree_rs=3, test_size=0.20,
+    n_neighbors=list(range(1, 3)),
+    C=[1e-1, 1],
+    max_depth=[5, 10])
+res = MLModels.summarize(ml_models, feature_names,
+                         show_plot=True, show_top=True)
+```
+<img src='/images/dota2/9.png'>
+<img src='/images/dota2/10.png'>
+<img src='/images/dota2/11.png'>
+<img src='/images/dota2/12.png'>
+<img src='/images/dota2/13.png'>
+<img src='/images/dota2/14.png'>
+<img src='/images/dota2/15.png'>
+<img src='/images/dota2/16.png'>
+<img src='/images/dota2/17.png'>
+<img src='/images/dota2/18.png'>
+<img src='/images/dota2/19.png'>
+
+## Feature Importance
+```python
+for model_name in methods[3:]:
+    try:
+        ax = ml_models[model_name].plot_feature_importance(feature_names)
+        ax.set_title(model_name, fontsize=16, weight="bold")
+    except Exception as e:
+        print(model_name, e)
+```
+<img src='/images/dota2/20.png'>
+<img src='/images/dota2/21.png'>
+<img src='/images/dota2/22.png'>
+<img src='/images/dota2/23.png'>
+<img src='/images/dota2/24.png'>
+<img src='/images/dota2/25.png'>
+<img src='/images/dota2/26.png'>
+
+## Light GBM Classifier Simulation
+```python
+# reduced params range based from previous multiple trials
+tune_model(train_X_scaled, train_y, 'Classification', 'LightGBM Classifier',
+           params={'max_depth': [25, 50],
+                   'n_estimators': [150, 200],
+                   'learning_rate': [0.1, 0.2]},
+           n_trials=2, tree_rs=3)
+```
+<div>
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Accuracy</th>
+    <th>Best Parameter</th>
+  </tr>
+  <tr>
+    <td>LightGBM Classifier</td>
+    <td>69.41%</td>
+    <td>{'max_depth': 25, 'n_estimators': 200, 'learning_rate': 0.1}</td>
+  </tr>
+  <tr>
+    <td>Classifier</td>
+    <td colspan="2">LGBMClassifier(max_depth=25, n_estimators=200, random_state=3)</td>
+  </tr>
+  <tr>
+    <td>acc</td>
+    <td>69.41</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>std</td>
+    <td>0.0013953488372092648</td>
+    <td></td>
+  </tr>
+</table>
+</div>
+
+## Bayesian Optimization Simulation
+In this project, we demonstrated the use of Bayesian optimization as a function optimization package by optimizing three hyperparameters of the LightGBM classifier. This was done to show how Bayesian optimization can improve the accuracy of a machine learning model by finding the optimal combination of hyperparameters.
+
+### The function to be optimized
+```python
+def lgb_cv(num_leaves, max_depth, min_data_in_leaf):
+    params = {
+        "num_leaves": int(num_leaves),
+        "max_depth": int(max_depth),
+        "learning_rate": 0.5,
+        'min_data_in_leaf': int(min_data_in_leaf),
+        "force_col_wise": True,
+        'verbose': -1,
+        "metric" : "auc",
+        "objective" : "binary",
+    }
+    
+    lgtrain = lightgbm.Dataset(train_X_scaled, train_y)
+    cv_result = lightgbm.cv(params,
+                       lgtrain,
+                       200,
+                       early_stopping_rounds=200,
+                       stratified=True,
+                       nfold=5)
+    return cv_result['auc-mean'][-1]
+```
+### The optimizer function
+```python
+def bayesian_optimizer(init_points, num_iter, **args):
+    lgb_BO = BayesianOptimization(lgb_cv, {'num_leaves': (100, 200),
+                                           'max_depth': (25, 50),
+                                           'min_data_in_leaf': (50, 200)
+                                           })
+    lgb_BO.maximize(init_points=init_points, n_iter=num_iter, **args)
+    return lgb_BO
+
+results = bayesian_optimizer(10,10)
+
+|   iter    |  target   | max_depth | min_da... | num_le... |
+-------------------------------------------------------------
+| 1         | 0.7859    | 49.98     | 128.7     | 115.4     |
+| 2         | 0.7796    | 42.94     | 68.67     | 190.1     |
+| 3         | 0.7784    | 28.36     | 57.48     | 107.0     |
+| 4         | 0.7869    | 30.55     | 134.1     | 150.3     |
+| 5         | 0.7892    | 36.73     | 162.4     | 187.3     |
+| 6         | 0.7866    | 31.26     | 195.5     | 165.7     |
+| 7         | 0.7804    | 37.51     | 75.45     | 175.9     |
+| 8         | 0.7848    | 45.02     | 123.7     | 153.1     |
+| 9         | 0.7842    | 33.06     | 124.2     | 109.2     |
+| 10        | 0.7884    | 39.39     | 164.4     | 142.8     |
+| 11        | 0.7882    | 39.39     | 165.1     | 143.5     |
+| 12        | 0.7881    | 50.0      | 179.0     | 100.0     |
+| 13        | 0.7895    | 50.0      | 200.0     | 200.0     |
+| 14        | 0.7892    | 25.0      | 186.1     | 200.0     |
+| 15        | 0.7882    | 25.0      | 165.9     | 113.4     |
+| 16        | 0.7876    | 25.0      | 138.8     | 200.0     |
+| 17        | 0.7874    | 50.0      | 169.2     | 200.0     |
+| 18        | 0.7895    | 25.0      | 200.0     | 100.0     |
+| 19        | 0.7893    | 49.78     | 198.9     | 120.6     |
+| 20        | 0.7892    | 26.53     | 198.9     | 121.2     |
+=============================================================
+```
+
+### Train Iterations with the optimized parameters
+```python
+def lgb_train(num_leaves, max_depth,  min_data_in_leaf):
+    params = {
+        "num_leaves": int(num_leaves),
+        "max_depth": int(max_depth),
+        "learning_rate": 0.5,
+        'min_data_in_leaf': int(min_data_in_leaf),
+        "force_col_wise": True,
+        'verbose': -1,
+        "metric": "auc",
+        "objective": "binary",
+    }
+
+    x_train, x_val, y_train, y_val = train_test_split(
+        train_X_scaled, train_y, test_size=0.2, random_state=3)
+    lgtrain = lightgbm.Dataset(x_train, y_train)
+    lgvalid = lightgbm.Dataset(x_val, y_val)
+    model = (lightgbm.train(params, lgtrain, 200, valid_sets=[lgvalid],
+                            early_stopping_rounds=200, verbose_eval=False))
+    prediction_val = model.predict(
+        test_X_scaled, num_iteration=model.best_iteration)
+    return prediction_val, model
+```
+
+## Optimize Simulation Results
+```python
+# 5 runs of the prediction model and get mean values.
+optimized_params = results.max['params']
+prediction_val1, _ = lgb_train(**optimized_params)
+prediction_val2, _ = lgb_train(**optimized_params)
+prediction_val3, _ = lgb_train(**optimized_params)
+prediction_val4, _ = lgb_train(**optimized_params)
+prediction_val5, model = lgb_train(**optimized_params)
+y_pred = ((prediction_val1 + prediction_val2 +b
+           prediction_val3 + prediction_val4 +
+           prediction_val5)/5)
+df_result = pd.DataFrame(
+    {'Radiant_Win_Probability': y_pred})
+df_result.sort_values(by='Radiant_Win_Probability', ascending=False).head()
+```
+<div>
+<table>
+  <tr>
+    <th>Match ID Hash</th>
+    <th>Radiant Win Probability</th>
+  </tr>
+  <tr>
+    <td>895</td>
+    <td>0.993668</td>
+  </tr>
+  <tr>
+    <td>1617</td>
+    <td>0.990840</td>
+  </tr>
+  <tr>
+    <td>1752</td>
+    <td>0.989719</td>
+  </tr>
+  <tr>
+    <td>245</td>
+    <td>0.987856</td>
+  </tr>
+  <tr>
+    <td>2742</td>
+    <td>0.986903</td>
+  </tr>
+</table>
+</div>
+
+```python
+feature_importance = (pd.DataFrame({'feature': train_X.columns,
+                                   'importance': model.feature_importance()})
+                      .sort_values('importance', ascending=False))
+plt.figure(figsize=(8, 5))
+sns.barplot(x=feature_importance.importance,
+            y=feature_importance.feature, palette=("Blues_d"))
+plt.show()
+```
+<img src='/images/dota2/27.png'>
+
+# CONCLUSION AND RECOMMENDATION
+
+The nature of Dota2 as a game with only one winner and one loser makes it a suitable problem for machine learning prediction. However, real-time predictions during a game can be challenging due to the need for specific information per minute. In this project, we used multiple models to determine the most suitable approach for predicting Dota2 game outcomes. Additionally, hyperparameter tuning was performed to optimize model performance, with Bayesian optimization being the preferred method due to its efficiency when dealing with expensive-to-evaluate functions like LightGBM.
+
+While the use of Bayesian optimization for hyperparameter tuning might not be as significant for small datasets or simple models, it becomes essential when dealing with enormous datasets where grid search may not be economically feasible. Therefore, the use of Bayesian optimization can improve the efficiency of the hyperparameter search process.
+
+To further enhance prediction accuracy, we recommend the use of time-series machine learning models to provide real-time forecasting during the game. Such models can take into account the changing dynamics of the game and provide more accurate predictions.
+
+In conclusion, this notebook provides valuable insights into Dota2 as a growing Esport and demonstrates how different machine learning models can be used to predict game outcomes. By leveraging hyperparameter optimization techniques like Bayesian optimization and considering time-series models for real-time prediction, we can improve the accuracy of our predictions and gain a deeper understanding of Dota2 as an Esport.
+
+# REFERENCES
+
+[1] Dota 2. (n.d.). https://www.dota2.com/home <br>
+
+[2] Staff, T. G. H. (2022, September 7). What Makes Dota 2 So Successful. The Game Haus. https://thegamehaus.com/dota/what-makes-dota-2-so-successful/2022/04/02/
+
+[3] mlcourse.ai: Dota 2 Winner Prediction | Kaggle. (n.d.). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/overview
+
+[4] Dota 2 5v5 - Red vs Blue by dcneil on. (2013, October 9). DeviantArt. https://www.deviantart.com/dcneil/art/Dota-2-5v5-Red-vs-Blue-406091855
+
+[5] mlcourse.ai: Dota 2 Winner Prediction | Kaggle. (n.d.-b). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/data
+    
+[6] Dota 2 Wiki. (n.d.). https://dota2.fandom.com/wiki/Dota_2_Wiki
+
+[7] fmfn, F. (n.d.). GitHub - fmfn/BayesianOptimization: A Python implementation of global optimization with gaussian processes. GitHub. https://github.com/fmfn/BayesianOptimization   
+
+[8] Natsume, Y. (2022, April 30). Bayesian Optimization with Python - Towards Data Science. Medium. https://towardsdatascience.com/bayesian-optimization-with-python-85c66df711ec
+
+* Note: the mltools of Prof Leodegario U. Lorenzo II and feedbacks of our Mentor Prof Gilian Uy and also the other professors significantly made this notebook very cool!
+
+
+
+
+
+
 
