@@ -9,8 +9,8 @@
 locale                   : "en-US"
 title                    : "Francis Camarao"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal test"
+name                     : &name "Francis Camarao"
+description              : &description "Data Scientist, Systems Architect, Software Engineer | Specializing in Data Science, Data Analytics, Machine Learning, and System Design"
 url                      : https://flcamarao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "flcamarao/flcamarao.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Francis"
   avatar           : "profile.png"
-  bio              : "Data Scientist, Systems Architect, Software Engineer | Specializing in Data Science, Data Analytics, Machine Learning, and System Design "
+  bio              : "Data Scientist, Systems Architect, Software Engineer | Specializing in Data Science, Data Analytics, Machine Learning, and System Design"
   location         : "Baguio City, Philippines"
   employer         :
   pubmed           : 
