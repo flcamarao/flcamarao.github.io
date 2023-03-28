@@ -2312,6 +2312,7 @@ results = bayesian_optimizer(10,10)
 <td>138.8</td>
 <td>200.0</td>
 </tr>
+</tbody>
 </table>
 </div>
 
