@@ -4,6 +4,8 @@ excerpt: "Application of machine learning model for accurate winner prediction i
 collection: portfolio
 ---
 
+<img src='/images/dota2/1.png'>
+
 # EXECUTIVE SUMMARY
 
 Dota 2, a leading multiplayer online battle arena (MOBA) game, engages two teams of five players in a strategic contest to destroy their opponent's "Ancient" structure while safeguarding their own. With its prominent presence in the esports domain, insights into the determinants of match outcomes hold significant value.
