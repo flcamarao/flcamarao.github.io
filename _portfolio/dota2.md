@@ -37,7 +37,6 @@ The overarching methodology of this project focuses on employing various machine
 - Hyperparameter Optimization: Fine-tuning model parameters to enhance predictive accuracy and efficiency.
 
 ## Import Libraries
-
 ```python
 # Data manipulation and analysis
 import pandas as pd
@@ -79,7 +78,6 @@ warnings.filterwarnings("ignore")
 The data used in this project is sourced from a Kaggle dataset [5]. The OpenDota API, which could have been an alternative, is no longer a viable option due to its restrictions on non-premium subscribers and the removal of free access to the API.
 
 ### Data Loading
-
 ```python
 # loading data
 train_data = pd.read_csv('./train_features.csv', index_col='match_id_hash')
@@ -120,7 +118,6 @@ sns.pairplot(train_data.iloc[:,:4], hue='lobby_type')
 <img src='/images/dota2/4.png'>
 
 ### Data Description
-
 ```python
 num_rows = train_data.shape[0]
 num_cols = train_data.shape[1]
@@ -1875,3 +1872,36 @@ print(html_table_with_info)
 </table> 
  <p>Number of Rows: 39675<br>Number of Columns: 245</p>
  </div>
+
+ The dataset comprises 39,675 rows and 245 columns or features, representing various aspects of Dota 2 matches. Each match involves 10 players, distributed across two teams of five players each. For every player, there are 24 unique features, leading to a total of 240 columns representing player-specific data.
+
+A detailed description of each player-specific feature can be found in the provided reference table [6].
+
+|  Feature  | Description |
+| ------------- |:-------------| 
+| **hero_id** | ID of player's hero (int64). [Heroes](https://dota2.gamepedia.com/Heroes) are the essential element of Dota 2, as the course of the match is dependent on their intervention. During a match, two opposing teams select five out of 117 heroes that accumulate experience and gold to grow stronger and gain new abilities in order to destroy the opponent's Ancient. Most heroes have a distinct role that defines how they affect the battlefield, though many heroes can perform multiple roles. A hero's appearance can be modified with equipment.|
+| **kills** | Number of killed players (int64).|
+| **deaths** | Number of deaths of the player (int64).|
+| **gold** | Amount of gold (int64). [Gold](https://dota2.gamepedia.com/Gold) is the currency used to buy items or instantly revive your hero. Gold can be earned from killing heroes, creeps, or buildings. |
+| **xp** | Experience points (int64). [Experience](https://dota2.gamepedia.com/Experience) is an element heroes can gather by killing enemy units, or being present as enemy units get killed. On its own, experience does nothing, but when accumulated, it increases the hero's level, so that they grow more powerful.   |
+| **lh** | Number of last hits (int64). [Last-hitting](https://dota2.gamepedia.com/Creep_control_techniques#Last-hitting) is a technique where you (or a creep under your control) get the 'last hit' on a neutral creep, enemy lane creep, or enemy hero. The hero that dealt the killing blow to the enemy unit will be awarded a bounty.|
+| **denies** | Number of denies (int64). [Denying](https://dota2.gamepedia.com/Denying) is the act of preventing enemy heroes from getting the last hit on a friendly unit by last hitting the unit oneself. Enemies earn reduced experience if the denied unit is not controlled by a player, and no experience if it is a player controlled unit. Enemies gain no gold from any denied unit. |
+| **assists** | Number of [assists](https://dota2.gamepedia.com/Gold#Assists_.28AoE_gold.29) (int64). Allied heroes within 1300 radius of a killed enemy, including the killer, receive experience and reliable gold if they assisted in the kill. To qualify for an assist, the allied hero merely has to be within the given radius of the dying enemy hero. |
+| **health** | Health points (int64). [Health](https://dota2.gamepedia.com/Health) represents the life force of a unit. When a unit's current health reaches 0, it dies. Every hero has a base health pool of 200. This value exists for all heroes and cannot be altered. This means that a hero's maximum health cannot drop below 200. |
+| **max_health** | Hero's maximum health pool (int64).|
+| **max_mana** | Hero's maximum mana pool (float64). [Mana](https://dota2.gamepedia.com/Mana) represents the magic power of a unit. It is used as a cost for the majority of active and even some passive abilities. Every hero has a base mana pool of 75, while most non-hero units only have a set mana pool if they have abilities which require mana, with a few exceptions. These values cannot be altered. This means that a hero's maximum mana cannot drop below 75. |
+| **level** | [Level](https://dota2.gamepedia.com/Experience#Leveling) of player's hero (int64). Each hero begins at level 1, with one free ability point to spend. Heroes may level up by acquiring certain amounts of experience. Upon leveling up, the hero's attributes increase by fixed amounts (unique for each hero), which makes them overall more powerful. Heroes may also gain more ability points by leveling up, allowing them to learn new spells, or to improve an already learned spell, making it more powerful. Heroes can gain a total for 24 levels, resulting in level 25 as the highest possible level a hero can reach. |
+| **x** | Player's X coordinate (int64) |
+| **y** | Player's Y coordinate (int64) |
+| **stuns** | Total stun duration of all stuns (float64). [Stun](https://dota2.gamepedia.com/Stun) is a status effect that completely locks down affected units, disabling almost all of its capabilities. |
+| **creeps_stacked** | Number of stacked creeps (int64). [Creep Stacking](https://dota2.gamepedia.com/Creep_Stacking) is the process of drawing neutral creeps away from their camps in order to increase the number of units in an area. By pulling neutral creeps beyond their camp boundaries, the game will generate a new set of creeps for the player to interact with in addition to any remaining creeps. This is incredibly time efficient, since it effectively increases the amount of gold available for a team. |
+| **camps_stacked** | Number of stacked camps  (int64). |
+| **rune_pickups** | Number of picked up [runes](https://dota2.gamepedia.com/Runes)  (int64).  |
+| **firstblood_claimed** | boolean feature? (int64) |
+| **teamfight_participation** |  Team fight participation rate? (float64) |
+| **towers_killed** | Number of killed/destroyed Towers (int64). [Towers](https://dota2.gamepedia.com/Buildings#Towers) are the main line of defense for both teams, attacking any non-neutral enemy that gets within their range. Both factions have all three lanes guarded by three towers each. Additionally, each faction's Ancient have two towers as well, resulting in a total of 11 towers per faction. Towers come in 4 different tiers. |
+| **roshans_killed** | Number of killed Roshans  (int64). [Roshan](https://dota2.gamepedia.com/Roshan) is the most powerful neutral creep in Dota 2. It is the first unit which spawns, right as the match is loaded. During the early to mid game, he easily outmatches almost every hero in one-on-one combat. Very few heroes can take him on alone during the mid-game. Even in the late game, lots of heroes struggle fighting him one on one, since Roshan grows stronger as time passes. |
+| **obs_placed** | Number of observer-wards placed by a player (int64). [Observer Ward](https://dota2.gamepedia.com/Observer_Ward), an invisible watcher that gives ground vision in a 1600 radius to your team. Lasts 6 minutes. |
+| **sen_placed** | Number of sentry-wards placed by a player (int64) [Sentry Ward](https://dota2.gamepedia.com/Sentry_Ward), an invisible watcher that grants True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within a radius. Lasts 6 minutes.|
+
+
