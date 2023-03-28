@@ -15,3 +15,61 @@ This study employs machine learning algorithms to analyze collected data, establ
 Future research can investigate additional models and optimization approaches to augment or supplement existing findings, further advancing our understanding and predictive capabilities for Dota 2 match outcomes.
 
 <img src='/images/dota2/2.png'>
+
+
+# HIGHLIGTHS
+
+1. Showcased the application of Bayesian Optimization and its impact on enhancing accuracy levels.
+2. Illustrated the implementation of Light Gradient Boosting alongside hyperparameter tuning.
+3. Explored the utilization of various Classification Models for diverse predictions.
+4. Identified gold as the most influential predictor in determining match outcomes.
+5. Emphasized the importance of Feature Engineering in optimizing model performance and efficiency.
+
+# METHODOLOGY
+
+The overarching methodology of this project focuses on employing various machine learning models, particularly LightGBM, to accurately predict Dota 2 match outcomes. The following steps outline the process:
+
+- Data Retrieval: Acquiring the relevant dataset for analysis.
+- Data Cleaning: Ensuring data quality by removing inconsistencies and inaccuracies.
+- Exploratory Data Analysis: Investigating data patterns, relationships, and trends to gain insights.
+- Data Preprocessing: Transforming and preparing the data for machine learning models.
+- ML Models Simulation: Implementing and comparing the performance of various machine learning models.
+- Hyperparameter Optimization: Fine-tuning model parameters to enhance predictive accuracy and efficiency.
+
+## Import Libraries
+
+```python
+# Data manipulation and analysis
+import pandas as pd
+import numpy as np
+
+# Data visualization
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Machine learning models and algorithms
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import Ridge, Lasso, LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import LinearSVC, SVC, SVR
+from sklearn.ensemble import (RandomForestClassifier,
+                              GradientBoostingClassifier,
+                              AdaBoostClassifier,
+                              ExtraTreesClassifier,
+                              VotingClassifier)
+from sklearn.neural_network import MLPClassifier
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
+from catboost import CatBoostClassifier
+
+# Machine learning tools and utilities
+from mltools import *
+from bayes_opt import BayesianOptimization
+
+# Data preprocessing and preparation
+from sklearn.preprocessing import StandardScaler
+
+# Ignore warnings
+import warnings
+warnings.filterwarnings("ignore")
+```
