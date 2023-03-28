@@ -121,6 +121,15 @@ sns.pairplot(train_data.iloc[:,:4], hue='lobby_type')
 
 ### Data Description
 
+```python
+num_rows = train_data.shape[0]
+num_cols = train_data.shape[1]
+html_table = train_data.head().to_html()
+html_table_with_info = f"{html_table} \n <p>Number of Rows: {num_rows}<br>Number of Columns: {num_cols}</p>"
+
+# Print the HTML table
+print(html_table_with_info)
+```
 <div>
 <table border="1" class="dataframe">
   <thead>
