@@ -2187,7 +2187,7 @@ def bayesian_optimizer(init_points, num_iter, **args):
     return lgb_BO
 
 results = bayesian_optimizer(10,10)
-
+```
 |   iter    |  target   | max_depth | min_da... | num_le... |
 -------------------------------------------------------------
 | 1         | 0.7859    | 49.98     | 128.7     | 115.4     |
@@ -2211,7 +2211,6 @@ results = bayesian_optimizer(10,10)
 | 19        | 0.7893    | 49.78     | 198.9     | 120.6     |
 | 20        | 0.7892    | 26.53     | 198.9     | 121.2     |
 =============================================================
-```
 
 ### Train Iterations with the optimized parameters
 ```python
@@ -2310,11 +2309,11 @@ In conclusion, this notebook provides valuable insights into Dota2 as a growing 
 
 [2] Staff, T. G. H. (2022, September 7). What Makes Dota 2 So Successful. The Game Haus. https://thegamehaus.com/dota/what-makes-dota-2-so-successful/2022/04/02/
 
-[3] mlcourse.ai: Dota 2 Winner Prediction | Kaggle. (n.d.). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/overview
+[3] mlcourse.ai: Dota 2 Winner Prediction Kaggle. (n.d.). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/overview
 
 [4] Dota 2 5v5 - Red vs Blue by dcneil on. (2013, October 9). DeviantArt. https://www.deviantart.com/dcneil/art/Dota-2-5v5-Red-vs-Blue-406091855
 
-[5] mlcourse.ai: Dota 2 Winner Prediction | Kaggle. (n.d.-b). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/data
+[5] mlcourse.ai: Dota 2 Winner Prediction Kaggle. (n.d.-b). https://www.kaggle.com/competitions/mlcourse-dota2-win-prediction/data
     
 [6] Dota 2 Wiki. (n.d.). https://dota2.fandom.com/wiki/Dota_2_Wiki
 
