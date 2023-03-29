@@ -434,3 +434,145 @@ By analyzing these datasets, we aim to gain insights into the nutritional value 
 `Allrecipes.com` is a popular recipe-sharing website that has been providing home cooks with a vast collection of recipes for over two decades. One of the unique features of `allrecipes.com` is that it includes nutritional information for many of its recipes. This feature has made it a go-to source for individuals who are looking for healthier meal options or who have specific dietary needs.
 
 In this study, the team scraped selected data from `allrecipes.com` due to its diverse food options and the availability of nutritional information for majority of its recipes. By leveraging this information, the team could provide more accurate and comprehensive information about the recipes, including nutritional values such as _calories, carbohydrates_g, sugars_g, fat_g, saturated_fat_g, cholesterol_mg, protein_g, dietary_fiber_g, and sodium_mg_. This information can benefit a wide range of users, from consumers with specific dietary needs to consumers simply interested in tracking their nutritional intake.
+
+<h2 style="color:#F7AF31">Data Preparation</h2>
+
+***
+```python
+food_raw, nutrients, ratings_raw = dmw2_final.read_data()
+```
+The team performed **data preparation, cleaning, and preprocessing** procedures to ensure the datasets' quality and appropriateness for subsequent analysis addressing any notable concerns such as missing data or irregular formatting, if any.
+
+<h3 style="color:#F7AF31">Recipe Dataset</h3>
+
+<h4 style="color:#0c0f11">Data Preview</h4>
+```python
+dmw2_final.df_exploration(food_raw)
+```
+<img src='/images/food/3.png'>
+
+<h4 style="color:#0c0f11">Impute missing values</h4>
+```python
+food_raw = food_raw.bfill(axis=1)
+food_raw = food_raw.ffill(axis=1)
+dmw2_final.df_exploration(food_raw, display_df=False)
+```
+
+<h4 style="color:#0c0f11">Add Nutritional Values</h4>
+
+Nutritional values in food recipes are important for consumers with specific dietary restrictions or personal preferences as this allow consumers to make informed decisions about what to eat based on their varying nutritional needs.
+```python
+food_nutrients = dmw2_final.add_nutrients(food_raw, nutrients)
+dmw2_final.df_exploration(food_nutrients)
+```
+<img src='/images/food/4.png'>
+
+<h4 style="color:#0c0f11">Preview Data with Nutritional Values</h4>
+```python
+df_food = dmw2_final.get_food(food_nutrients)
+dmw2_final.df_exploration(df_food)
+```
+<img src='/images/food/5.png'>
+
+<h4 style="color:#0c0f11">Impute missing values</h4>
+```python
+df_food = df_food.bfill(axis=1)
+df_food = df_food.ffill(axis=1)
+dmw2_final.df_exploration(df_food, display_df=False)
+```
+
+<h3 style="color:#F7AF31">Ratings Dataset</h3>
+
+<h4 style="color:#0c0f11">Data Preview</h4>
+```python
+dmw2_final.df_exploration(ratings_raw)
+```
+<img src='/images/food/6.png'>
+As discussed above, in order to increase the reliability of the reviews and ensure that they were written by knowledgeable users, we filtered the dataset to only include reviews written by users who had provided feedback more than 100 times. By doing so, we were able to reduce the influence of potentially biased or unreliable reviews, and focus on the feedback provided by experienced reviewers.
+
+```python
+df_ratings = dmw2_final.get_ratings(ratings_raw, df_food)
+dmw2_final.df_exploration(df_ratings)
+```
+<img src='/images/food/7.png'>
+
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<h2 style="color:#F7AF31">Exploratory Data Analysis</h2>
+
+***
+The team performed in-depth exploration on the datasets discussed above to better comprehend its contents and structures. This critical process ensured that the subsequent analysis will be based on accurate and dependable data.
+
+We took a closer look at the distribution of __ratings__ by plotting the __total number of ratings per rating value__ alongside the __percentage of ratings per rating value__. By presenting these two metrics side by side, we were able to identify any potential patterns or trends in the data and gain valuable insights into the overall distribution of ratings. This process helped us to identify the most common rating values and determine the most effective way to analyze and interpret the data.
+
+```python
+# Calculate the percentage of each rating value
+total = df_ratings.Rating.count()
+percent_plot = pd.DataFrame({"Total": df_ratings.Rating.value_counts()})
+percent_plot.reset_index(inplace=True)
+percent_plot.rename(columns={"index": "Rating"}, inplace=True)
+percent_plot["Percent"] = percent_plot["Total"].apply(lambda x: (x/total)*100)
+
+# Plot the first bar chart
+plt.figure(figsize=(10, 5))
+ax1 = plt.subplot(1, 2, 1)
+sns.barplot(x="Rating", y="Total", data=percent_plot, color="#808080")
+plt.xlabel("Rating")
+plt.ylabel("Total")
+plt.title("Total Ratings per Rating Value")
+
+# Plot the second bar chart
+ax2 = plt.subplot(1, 2, 2)
+sns.barplot(x="Rating", y="Percent", data=percent_plot, color="#ff7f0e")
+plt.xlabel("Rating")
+plt.ylabel("Percent")
+plt.title("Percentage of Ratings per Rating Value")
+
+# Save the plot as a PNG file
+plt.savefig("plots.png")
+
+# Create an HTML img tag to display the image
+img_tag = f'<img src="plots.png" alt="plots" style="display:block;margin-left:auto;margin-right:auto;width:80%;">'
+
+# Display the img tag in the Jupyter Notebook
+display(HTML(img_tag))
+plt.close()
+```
+<img src='/images/food/8.png'>
+<a name="figure2"></a>
+<center><b>Figure 2:</b> Distribution of Ratings per Rating Value </center>
+
+From both the total ratings and percentage of ratings per rating value, we can infer that majority of the dishes in the Recipes datasets have a rating of 5.0. Despite the fact that ratings are subjective, we can deduce that majority of the dishes in our dataset are delicious and approved by the foodies out there. 
+
+```python
+dmw2_final.display_top_foods(df_ratings, df_food)
+```
+Top 10 Foods with the Most Number of Reviews
+<img src='/images/food/9.png'>
+<a name="figure3"></a>
+<center><b>Figure 3:</b> Top 10 Foods with the Most Number of Reviews </center>
+
+Above list of recipes were the top 10 foods based on how many times each `food_id` was reviewed. `Total Rating` depicts the total number of ratings per food. We started by tabulating the frequency of each `food_id` in the reviews and subsequently included a "`total rating`" column that displays the total number of reviews for each food item. We then determined the top 10 food items based on the cumulated total number of ratings.
+
+Intuitively, it does follow that as the number of reviews increase, total of the ratings also increases. One notable observation as well is that these dishes with most number of reviews have a sodium content which is within the threshold of 2,000mg. 
+
+```python
+dmw2_final.display_top_10_sodium(df_food)
+```
+Top 10 Foods with theMost Number of Sodium Content (in mg)
+<img src='/images/food/10.png'>
+<a name="figure4"></a>
+<center><b>Figure 4:</b> Top 10 Foods with the Most Number of Sodium content (in mg) </center>
+
+Above list of recipes were the top 10 foods based on their sodium content (in mg). The highest on the list is Baker's clay, which is from the `allrecipes.com` website, is used to make non-edible cookies that make lovely ornaments to hang on your Christmas Tree [4]. Its main ingredients are 4 cups of all-purpose flour, 1 1/2 cups water, and 1 cup salt. Given that the sodium content is beyond the 2,000mg threshold, no need to remove this outlier as this will be automatically be removed when recommending recipes to hypertensive eaters. 
+
+Other dishes in the list are mostly main dishes with meat as its main ingredient - ribs, steak, ham, others.  
+
+
+
+
+
+
+
+
