@@ -395,6 +395,7 @@ shap.summary_plot(best_models_and_shap[1]
                   ['shap_explanation'], plot_size=(5, 5))
 ```
 <img src='/images/kdrama/16.png'>
+
 SHAP values measure the effect of each variable on the model. In doing so, the expected value of the actual series is compared to the effect of each variable on the model while all other variables are kept constant. From the graph below, we can see all the variables has a positive effect on the model and `Seoul` has the most positive effect on the model ceteris paribus. In other words, a small change in the values of `Seoul` varibale would cause a significant effect on the output of the model.
 
 ```python
@@ -410,6 +411,7 @@ shap.summary_plot(best_models_and_shap[2]
                   ['shap_explanation'], plot_size=(5, 5))
 ```
 <img src='/images/kdrama/19.png'>
+
 `Based on novel or book` has the most positive effect on the model for the low budget, high rating quadrant. That is, a small change of the said variable would cause the model predict lower values. This would also mean that based on the graph, `based on novel or book` controls the output of the model, i.e. a slight change in variable will incur huge effect on the predictions as compared when the other variables have higher values.
 
 ```python
@@ -425,6 +427,7 @@ shap.summary_plot(best_models_and_shap[3]
                   ['shap_explanation'], plot_size=(5, 5))
 ```
 <img src='/images/kdrama/22.png'>
+
 For the low budget, low rating quadrant, most of the variables have a negative effect on the model with respect to the expected value of the actual series. Only `based on webcomic or webtoon` and `friendship` has a positive effect on the model. Further, `boy's love (bI)` has the most negative effect on the model. That is, a small change of the said variable would cause the model predict lower values. This would also mean that based on the graph, the feature `boy's love` controls the output of the model, i.e. a slight change in the value of `boy's love` will incur huge effect on the predictions as compared when the other variables have higher values.
 
 ```python
@@ -440,6 +443,7 @@ shap.summary_plot(best_models_and_shap[4]
                   ['shap_explanation'], plot_size=(5, 5))
 ```
 <img src='/images/kdrama/25.png'>
+
 Based on the graph shown below, we can see that `historical figure` and `historical drama` are the ones affecting the output of the model. We can see that all the other variables have the same SHAP values and are infereior with respect to historical figure.
 
 ```python
@@ -490,6 +494,9 @@ This project was limited to data from a single source, the TMDB KDramas 2022 dat
 [1] Collider (2022, December 30). "Why Korean Dramas Are So Much More Addictive Than You Think". https://collider.com/korean-dramas-addictive/
 
 [2] South China Morning Post (2021, June 26). "How much do K-dramas cost to make? Budgets keep growing, hastened by Netflix’s entry with Kingdom and Sweet Home". https://www.scmp.com/lifestyle/k-pop/k-drama/article/3138546/how-much-do-k-dramas-cost-make-budgets-keep-growing
+
+[ref]: #contents
+[Back to Table of Contents][ref]
 
 
 
