@@ -1,5 +1,5 @@
 ---
-title: "Empowering Dota 2 Match Analysis: Unleashing the Potential of LightGBM Machine Learning Techniques"
+title: "Dota 2 Match Analysis: Unleashing the Potential of LightGBM Machine Learning Techniques"
 excerpt: "Application of machine learning model for accurate winner prediction in competitive gaming <br /><img src='/images/dota2/1.png'>"
 collection: portfolio
 ---
