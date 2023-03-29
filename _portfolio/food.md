@@ -569,10 +569,229 @@ Above list of recipes were the top 10 foods based on their sodium content (in mg
 
 Other dishes in the list are mostly main dishes with meat as its main ingredient - ribs, steak, ham, others.  
 
+```python
+dmw2_final.display_top_10_sodium_serving(df_food)
+```
+Top 10 Foods with the Most Number ofSodium content (in mg) per Serving
+<img src='/images/food/11.png'>
+<a name="figure5"></a>
+<center><b>Figure 5:</b> Top 10 Foods with the Most Number of Sodium content (in mg) per Serving </center>
+
+Above list of recipes were the top 10 foods based the sodium content (in mg) per serving. Ignoring Baker's clay which was already discussed in the previous list of top 10 items, the dishes returned this time are those which are stuffed and sandwich (burger).
+
+```python
+dmw2_final.display_low_10_sodium_serving(df_food)
+```
+Top 10 Foods with the Least Number ofSodium content (in mg) per serving
+<img src='/images/food/12.png'>
+<a name="figure6"></a>
+<center><b>Figure 6:</b> Top 10 Foods with the Least Number of Sodium content (in mg) per Serving </center>
+
+Above list of recipes were the bottom 10 foods based on its sodium content (in mg) per serving. Scanning the returned list of dishes, it does not look appetizing on their own, as it seems that these foods are complementary to other foods or should be eaten together with other dishes.
+
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<a name="dimension"></a>
+
+***
+<h1 style="color:#F15025">DIMENSIONALITY REDUCTION</h1>
+
+***
+Dimensionality reduction refers to the process of reducing the number of features in a dataset while retaining and being able to explain the variation in the original dataset as much as possible.
+
+For the purpose of this study, given the number and nature of features we have, we used Truncated Singular Value Decomposition since it is recommended for densed data and datasets with sparse data, in which many of the row values are zero. [5] Given that we vectorized the ingredients, the returned dataset was highly sparsed, hence the reason for choosing SVD for dimensionality reduction. 
+```python
+df_corpus = dmw2_final.get_ingredient_matrix(df_food)
+dmw2_final.df_exploration(df_corpus)
+```
+<img src='/images/food/13.png'>
+```python
+dmw2_final.plot_variance_explained(df_corpus)
+```
+<img src='/images/food/14.png'>
+<a name="figure7"></a>
+<center><b>Figure 7:</b> Cumulative variance explained </center>
+
+The SVD analysis of a matrix indicated that to explain at least 80% of the variance, **109** components were required based on the cumulative proportion of variance explained by the singular values
+```python
+df_svs = dmw2_final.perform_svd(dmw2_final.n_sv, df_corpus)
+dmw2_final.df_exploration(df_svs)
+```
+<img src='/images/food/15.png'>
+Above table provides a detailed breakdown of all 109 singular values retained and its corresponding weights.
+
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<a name="results"></a>
+
+***
+<h1 style="color:#F15025">RESULTS</h1>
+
+***
+
+<h2 style="color:#F7AF31">CLUSTERING</h2>
+
+***
+We evaluated three different clustering methods: 
+- k-Means representative-based clustering; 
+- Complete Linkage hierarchical-based clustering; and
+- Ward's Linkage hierarchical-based clustering.
+
+When selecting the best clustering method for dataset, we took into account below factors: 
+- results of internal validation metrics such as **Silhouette Score, Davies-Bouldin index, and Calinski-Harabasz index**; 
+- evaluation through visual inspection the resulting clusters when projected onto the two selected singular value components of the ingredients dataset; and 
+- the sensibility of the resulting cluster interpretations based on domain expertise.
+
+After systematically evaluating various clustering techniques, we found that **k-Means** was the most effective approach for clustering the data, producing superior results in terms of cluster separation and coherence. To optimize the k-Means algorithm, we tested a range of k values ranging from 2 to 11. 
+
+On the other hand, for the hierarchical methods, we performed sensitivity analyses on the dendrogram cut-off points. Through this thorough evaluation process, we were able to identify the optimal clustering method for the input data and gain valuable insights into its underlying structure.
+
+<h3 style="color:#CFB059">K-Means</h3>
+```python
+dmw2_final.evaluate_kmeans_clusters(dmw2_final.final_tsvd)
+```
+<img src='/images/food/16.png'>
+<a name="figure8"></a>
+<center><b>Figure 8:</b> Results of k-Means Clustering</center>
+These are the results of the grid search for the optimal K, which involved 10 iterations.
+```python
+dmw2_final.show_internal_validation(dmw2_final.silhouette_scores,
+                                    dmw2_final.ch_scores,
+                                    dmw2_final.db_scores)
+```
+<img src='/images/food/17.png'>
+<a name="figure9"></a>
+<center><b>Figure 9:</b> Results of k-Means Clustering Metrics </center>
+A grid search was performed on the k-Means clustering algorithm to identify the optimal number of clusters, with a range of possible values for `k` evaluated using internal validation metrics such as the **Silhouette Score, Davies-Bouldin index, and Calinski-Harabasz index**. Through this systematic evaluation, the optimal balance between cluster separation and coherence was identified, resulting in the optimal number of clusters for the k-Means algorithm being determined as **K = 2**.
+
+```python
+dmw2_final.run_kmeans(dmw2_final.final_tsvd, df_corpus, dmw2_final.feature_names)
+```
+<img src='/images/food/18.png'>
+<a name="figure10"></a>
+<center><b>Figure 10:</b> Final K-Means Clustering </center>
+The k-Means clustering resulted in two optimal clusters, providing valuable insights into the structure of the dataset and simplifying the representation of the data points.
+
+<h3 style="color:#CFB059">Single, Complete, Average, and Ward</h3>
+```python
+dmw2_final.plot_dendrograms(dmw2_final.final_tsvd)
+```
+<img src='/images/food/19.png'>
+<a name="figure11"></a>
+<center><b>Figure 11:</b> Hierarchal Clustering Methods </center>
+
+This visualization helps us gain a better understanding of the clustering process by displaying the unique outcomes generated by four different linkage methods: single, complete, average, and Ward. Given that Ward linkage may produce similar clustering results as k-Means but can be computationally expensive, it may be more reasonable to choose k-Means clustering. 
+
+<h2 style="color:#F7AF31">WORDCLOUD</h2>
+
+***
+```python
+dmw2_final.create_word_clouds(df_food, dmw2_final.cluster_indexes)
+```
+<img src='/images/food/20.png'>
+<a name="figure12"></a>
+<center><b>Figure 12:</b> Extracted Cluster Themes </center>
+
+We utilized k-Means clustering with two clusters to generate two word clouds based on the frequency of terms in each cluster, labeling them as **"Sweet Treats"** and **"Savory Eats"**. The resulting word clouds provided a concise visual summary of the main themes and topics associated with each category, enabling us to easily identify the most relevant recipes for each group. By using this approach, we were able to gain valuable insights into the underlying structure of the input data and facilitate more efficient recipe recommendations or menu planning.
+
+<h2 style="color:#F7AF31">RECOMMENDER SYSTEM</h2>
+
+***
+<img src='/images/food/21.png'>
+<a name="figure13"></a>
+<img src='recommender.png' height='400'>
+<br>
+<center><b>Figure 13:</b> FlavorFit Recommender System </center>
+
+<h3 style="color:#CFB059">Collaborative Filtering</h3>
+In this section of the analysis,  **two separate recommendation systems: one for Sweet Treats and the other for Savory Eats** were built. We used a collaborative filtering approach based on user-item interactions to make personalized recommendations. Specifically, we will be implemented a **nearest-neighbor collaborative filtering algorithm** to predict user ratings for recipes based on their past ratings and the ratings of similar users. This approach showed effectiveness in generating accurate and personalized recommendations for users.
+
+<h4 style="color:#F7AF31">Cluster 1: Sweet Treats </h4>
+```python
+dmw2_final.food_recommendation1(df_food, df_ratings, 'Creamy Caramel Flan Recipe')
+```
+<img src='/images/food/22.png'>
+<a name="figure14"></a>
+<center><b>Figure 14:</b> FlavorFit Recommender System for Sweet Treats </center>
+
+The **Sweet Treats recommendation system** has generated a list of three top recommendations based on the input **"Creamy Caramel Flan Recipe"**. 
+
+It not only provides the names of the recommended desserts but also displays their sodium content. This information can be useful for users who are conscious about their sodium intake and would like to avoid hypertension. By presenting this additional information, the system enables users to make informed decisions about which dessert to choose, based on their dietary requirements and preferences. This feature highlights the system's commitment to providing personalized and relevant recommendations that take into account the individual user's needs and preferences.
+
+<h4 style="color:#F7AF31">Cluster 2: Savory Eats </h4>
+```python
+dmw2_final.food_recommendation2(df_food, df_ratings, 'Homemade Mac and Cheese Recipe')
+```
+<img src='/images/food/23.png'>
+<a name="figure15"></a>
+<center><b>Figure 15:</b> FlavorFit Recommender System for Savory Eats </center>
+
+The **Savory Eats recommendation system** has generated a list of three top recommendations based on the input **"Homemade Mac and Cheese Recipe"**. 
+
+It not only provides the names of the recommended desserts but also displays their sodium content. This information can be useful for users who are conscious about their sodium intake and would like to avoid hypertension. By presenting this additional information, the system enables users to make informed decisions about which dessert to choose, based on their dietary requirements and preferences. This feature highlights the system's commitment to providing personalized and relevant recommendations that take into account the individual user's needs and preferences.
+
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<a name="conclusion"></a>
+
+***
+<h1 style="color:#F15025">CONCLUSION</h1>
+
+***
+The team used _k-Means clustering_ to explore the structure of the recipe dataset and __discovered two main clusters: Sweet Treats and Savory Eats__. This information can be useful for identifying popular flavor profiles and for tailoring recipe recommendations based on individual preferences. Moreover, by leveraging _Neighborhood-Based Collaborative Filtering_ and capturing nutritional thresholds for hypertensive individuals, our recommendation system was able to provide recipe suggestions that are both delicious and healthy. __This has the potential to help hypertensive patients adhere to dietary restrictions and improve their overall health outcomes.__ 
+
+____Overall, our study highlights the potential of data-driven approaches to promote healthier eating habits, especially for those with specific health concerns such as hypertension.____ By leveraging machine learning techniques and nutritional expertise, we can create personalized recommendations that are both enjoyable and beneficial for individuals' health.
+
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<a name="recommendation"></a>
+
+***
+<h1 style="color:#F15025">RECOMMENDATIONS</h1>
+
+***
+The team is confident in the potential of our recommendation system, and we have identified several key areas for improvement and expansion. These include: 
+
+1. User Value:
+
+    - __To enhance the customization of our recommendation system__, we plan to capture more customized nutritional thresholds beyond the current 2,000 mg sodium daily restriction for hypertensive individuals. While this restriction is recommended by the World Health Organization, there may be individuals whose doctors have prescribed different thresholds based on their specific health needs. By capturing more personalized nutritional thresholds, our system can provide more tailored recipe recommendations to meet the diverse dietary needs of individuals with hypertension. Therefore, the team aims to improve the existing system by incorporating additional customized nutritional thresholds to accommodate a wider range of scenarios. _This would further enhance the personalization of our recommendation system and provide more accurate and relevant recipe recommendations to our users._
+    </br>
+    
+    - __To extend the explainability of the recommended recipes to eaters__, we plan to leverage the power of Explainable Artificial Intelligence (XAI) techniques. XAI is a growing field that focuses on developing transparent and interpretable machine learning models that can provide insights into how a model arrived at a particular decision or recommendation. By leveraging XAI techniques, we can provide users with clear and transparent explanations of how our recommendation system arrived at a particular recommendation. This can improve user trust and engagement, _leading to greater adherence to dietary restrictions and ultimately improving the health outcomes of individuals with hypertension_. 
 
 
+2. Business Value:
 
+    - __To expand our recommendation system to include other health conditions such as cancer, gout, and others so as to significantly improve the health outcomes of individuals with these conditions.__ By leveraging the same data extraction, cleaning, processing, text vectorization and clustering, and recommendation system methodologies used for hypertensive patients, we can tailor our system to capture the nutritional thresholds and dietary restrictions specific to these health conditions. This can enable individuals with these conditions to find recipes that fit their dietary requirements and improve their overall health outcomes. Furthermore, _expanding to other health conditions can also potentially increase the user base and reach of our recommendation system, leading to greater impact and success._
+        </br>
 
+    - __To maximize the impact and reach of our recommendation system, we plan to explore partnerships with food delivery services.__ This partnership will allow us to integrate our recommendation system with their platforms, _reaching a wider audience of potential users_. Additionally, partnering with food delivery services could _potentially provide a new revenue stream._ Moreover, by collaborating with these services, we can gain access to vast amounts of consumer purchase behavior data, which can help us _improve the performance of our algorithm_. With this data, we can fine-tune our recommendation system to better align with user preferences and dietary needs, ultimately leading to improved health outcomes for individuals with hypertension and other health conditions.
+    
+[ref]: #top
+[Back to Table of Contents][ref]
+
+<a name="references"></a>
+
+***
+<h1 style="color:#F15025">REFERENCES</h1>
+
+***
+[1] Hypertension. (2021, August 25). World Health Organization. https://www.who.int/news-room/fact-sheets/detail/hypertension.
+
+[2] `allrecipes.com` website. https://www.allrecipes.com.
+
+[3] World Heart Federation. https://world-heart-federation.org.
+
+[4] Baker's Clay. (2022, July 22). Johanna. https://www.allrecipes.com/recipe/11125/bakers-clay/
+
+[5] 11 Dimensionality reduction techniques you should know in 2021. (2021, Apr 14). Rukshan Pramoditha. https://towardsdatascience.com/11-dimensionality-reduction-techniques-you-should-know-in-2021-dcb9500d388b
+
+[ref]: #top
+[Back to Table of Contents][ref]
 
 
 
