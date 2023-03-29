@@ -26,6 +26,7 @@ Overall, this project highlighted the potential of data-driven approaches to pro
 [Back to Table of Contents][ref]
 
 <a name="top"></a>
+
 ***
 <h1 style="color:#F15025">TABLE OF CONTENTS</h1>
 
@@ -68,6 +69,7 @@ Overall, this project highlighted the potential of data-driven approaches to pro
 - [References][ref11]
 
 <a name="prob_statement"></a>
+
 ***
 <h1 style="color:#F15025">PROBLEM STATEMENT</h1>
 
@@ -171,7 +173,7 @@ This can have significant health benefits for hypertensive patients, as it can h
 
 ***
 <a name="figure1"></a>
-<img src='methodology.png' height='200'>
+<img src='food/2.png' height='200'>
 <br>
 <center><b>Figure 1:</b> Project Methodology </center>
 To develop the proposed recipe recommendation system for hypertensive eaters, the following methodology was employed: 
@@ -276,8 +278,8 @@ For this project, the team focused on exploring the Recipes and Ratings datas
 | `ratings` | `Rating`| int64 | Rating of the rater per recipe |
 
 
-<br>
-<center><b/> Table 1. Description of the Data per DataFrame </center>
+<center><b> Table 1. Description of the Data per DataFrame</b></center>
+
 
 From the above table and as discussed in the methodology that the recipes and nutrients were combined, this project focused on exploring the `Recipes` and `Ratings` datasets with detailed features as follows. 
 
@@ -377,9 +379,9 @@ By analyzing these datasets, we aim to gain insights into the nutritional value 
     </tr>
   </tbody>
 </table>
-</br>
+
 <a name="table3"></a>
-<br>
+
 <table>
   <thead>
     <tr>
@@ -409,12 +411,12 @@ By analyzing these datasets, we aim to gain insights into the nutritional value 
     </tr>
   </tbody>
 </table>
-</br>
 
 [ref]: #top
 [Back to Table of Contents][ref]
 
 <a name="exploration"></a>
+
 ***
 <h1 style="color:#F15025">DATA EXPLORATION</h1>
 
