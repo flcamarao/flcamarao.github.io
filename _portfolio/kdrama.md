@@ -6,7 +6,8 @@ collection: portfolio
 
 <img src='/images/kdrama/1.png'>
 
-# EXECUTIVE SUMMARY
+<a name="exec_summary"></a>
+<h1 style='background-color:#1BD6DD; border: 1px solid #ffffff; padding: 10px 0;'>EXECUTIVE SUMMARY</h1>
 
 The Korean drama (KDrama) industry has witnessed a remarkable rise in global popularity, captivating audiences with its unique blend of elements. Despite this success, the industry faces significant challenges due to increasing production costs. Striking a balance between creative expression and financial constraints has become a priority for producers seeking innovative ways to create high-quality series that resonate with viewers.
 
@@ -22,25 +23,45 @@ In summary, this project underscores the potential of AI and data analysis in un
 
 [ref0]: #exec_summary 
 - [Executive Summary][ref0]
+
 [ref1]: #motiv
 - [Motivation][ref1]
+
 [ref2]: #prob
 - [Problem Statement][ref2]
+
 [ref3]: #limitations
 - [Limitations][ref3]
+
 [ref4]: #metho 
 - [Methodology][ref4]
+
 [ref5]: #data
 - [Data Source and Description][ref5]
+
 [ref6]: #explo
 - [Data Exploration][ref6]
+
 [ref7]: #results
 - [Machine Learning Results][ref7]
+
 [ref8]: #explain
 - [Explainability][ref8]
+
 [ref9]: #conclu
 - [Conclusion][ref9]
+
 [ref10]: #reco
 - [Recommendations][ref10]
+
 [ref11]: #ref
 - [References][ref11]
+
+
+<a name="intro"></a>
+<h1 style='background-color:#1BD6DD; border: 1px solid #ffffff; padding: 10px 0;'>INTRODUCTION</h1>
+
+<a name="motiv"></a>
+<h2 style='color:#01355F'>Motivation</h2>
+
+***
