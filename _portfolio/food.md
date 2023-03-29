@@ -7,6 +7,7 @@ collection: portfolio
 <img src='/images/food/1.png'>
 
 <a name="exec_summary"></a>
+
 ***
 <h1 style="color:#F15025">EXECUTIVE SUMMARY</h1>
 
@@ -86,6 +87,7 @@ Several key considerations such as identifying and incorporating relevant nutrit
 [Back to Table of Contents][ref]
 
 <a name="motivation"></a>
+
 ***
 <h1 style="color:#F15025">MOTIVATION</h1>
 
@@ -103,6 +105,7 @@ This can have significant health benefits for hypertensive patients, as it can h
 [Back to Table of Contents][ref]
 
 <a name="list"></a>
+
 ***
 <h1 style="color:#F15025">LIST OF TABLES AND FIGURES</h1>
 
@@ -168,12 +171,13 @@ This can have significant health benefits for hypertensive patients, as it can h
 [Back to Table of Contents][ref]
 
 <a name="methodology"></a>
+
 ***
 <h1 style="color:#F15025">METHODOLOGY</h1>
 
 ***
 <a name="figure1"></a>
-<img src='food/2.png' height='200'>
+<img src='/images/food/2.png'>
 <br>
 <center><b>Figure 1:</b> Project Methodology </center>
 To develop the proposed recipe recommendation system for hypertensive eaters, the following methodology was employed: 
@@ -209,6 +213,7 @@ Using _Neighborhood Based Collaborative Filtering method_, a machine learning al
 [Back to Table of Contents][ref]
 
 <a name="source"></a>
+
 ***
 <h1 style="color:#F15025">DATA SOURCE AND DESCRIPTION</h1>
 
@@ -278,7 +283,7 @@ For this project, the team focused on exploring the Recipes and Ratings datas
 | `ratings` | `Rating`| int64 | Rating of the rater per recipe |
 
 
-<center><b> Table 1. Description of the Data per DataFrame</b></center>
+<center><b> Table 1.</b> Description of the Data per DataFrame</center>
 
 
 From the above table and as discussed in the methodology that the recipes and nutrients were combined, this project focused on exploring the `Recipes` and `Ratings` datasets with detailed features as follows. 
