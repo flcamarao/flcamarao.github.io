@@ -1,6 +1,7 @@
 ---
 title: "Pressure's off the Menu! Enjoyable Plating for Healthy Living"
 excerpt: "Recommender System of Delicious and Healthy Recipes for Hypertensive Eaters<br /><img src='/images/food/1.png'>"
+date: March 13, 2023
 collection: portfolio
 ---
 
@@ -791,5 +792,7 @@ The team is confident in the potential of our recommendation system, and we have
 [ref]: #top
 [Back to Table of Contents][ref]
 
+<h2>ACKNOWLEDGEMENT</h2>
 
+This project was done with my Learning Team, Frances Divina Egango, Jed Alvin Guinto, Jose Ramon Jimenez and Bernadette Obiso.
 
