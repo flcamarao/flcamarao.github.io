@@ -1,7 +1,7 @@
 ---
 title: "Uncovering Hidden Clusters: Analyzing the Bureau of Customs Import Dataset"
 excerpt: "The Benefits and Challenges of Applying Unsupervised Clustering Techniques for Data Analysis<br /><img src='/images/customs/1.png'>"
-date: March 1, 2023
+date: February 8, 2023
 collection: portfolio
 ---
 
