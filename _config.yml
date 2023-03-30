@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Francis Camarao"
+title                    : "Francis L. Camarao"
 title_separator          : "-"
-name                     : &name "Francis Camarao"
+name                     : &name "Francis"
 description              : &description "Data Scientist, Systems Architect, Software Engineer | Specializing in Data Science, Data Analytics, Machine Learning, and System Design"
 url                      : https://flcamarao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
