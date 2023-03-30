@@ -470,6 +470,7 @@ reco = final_table.join(final,on='index')
 reco[['name','stars']].head(5)
 ```
 <img src='/images/yelp/9.png'>
+
 Nonetheless, this approach does not consider the preferences of individual users or reviewers, relying solely on the restaurant's characteristics for recommendations. To overcome this constraint, we will employ an alternative method known as collaborative filtering.
 
 <h2>Collaborative Filtering Method</h2>
@@ -518,17 +519,20 @@ for restaurant in recommended_restaurants:
 ```
 
 <b>Most Popular Restaurant:</b>
+
 Ulele
 
 <b>Recommended Restaurants:</b>
+
 Average Joe's Bar & Grille
+
 Barb's Wooden Spoon
+
 Bon Zanmi Haitian Cuisine
+
 La Botana Antojos Agridulces
+
 Martha's Place
-Pholicious Countryside Mall
-Popi's Place III
-Zeko's
 
 All these restaurants share similarities in terms of providing small-plate dishes, such as tapas and burgers.
 
@@ -570,3 +574,8 @@ The recommendation system could incorporate external factors that might influenc
 [5] Rocca, B. (2019, June 3). Introduction to recommender systems. Batiste Rocca. https://towardsdatascience.com/introduction-to-recommender-systems-6c66cf15ada
 
 [6] Hebert, C. (2022, March 30). Tampa Bay's Seafood. https://tampamagazines.com/tampa-bays-best-seafood/
+
+<h2>ACKNOWLEDGEMENT</h2>
+
+This project was done with my Sub Learning Team, Frances Divina Egango.
+
