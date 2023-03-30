@@ -1453,7 +1453,9 @@ for i, (eps, (optics, cluster_labels)) in enumerate(optics_dict.items()):
 ```
 <img src='/images/customs/30.png'>
 
+<h2>ACKNOWLEDGEMENT</h2>
 
+This project was done with my Sub Learning Team, Allan Geronimo and Frances Divina Egango.
 
 
 
