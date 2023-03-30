@@ -149,7 +149,6 @@ warnings.filterwarnings("ignore")
 
 <h2 style="color:#87CEEB"> Utility Functions</h2>
 
-***
 ```python
 @ticker.FuncFormatter
 def billion_formatter(x, pos):
@@ -569,7 +568,6 @@ for i, year in enumerate(year_list):
 
 <h2 style="color:#87CEEB"> Data Extraction</h2>
 
-***
 The customs datasets were obtained via a public dataset.
 The raw data are all in xlsx file format which were saved to pickle files and sqlite3 databases.
 The detailed steps performed, including the relevant documents used and created are documented below:
@@ -629,7 +627,6 @@ The detailed steps performed, including the relevant documents used and created 
 
 <h2 style="color:#87CEEB">Data Cleaning and Processing</h2>
 
-***
 <h3 style="color:#87CEEB"> Customs Importation Data</h3>
 
 ```python
@@ -676,8 +673,6 @@ except:
 
 <h2 style="color:#87CEEB">Exploratory Data Analysis (EDA)</h2>
 
-***
-
 **OBJECTIVE:**
 
 The objective of this EDA is to identify which subset of the data we can focus on considering that the full dataset is too big for JOJIE or our laptops to handle.
@@ -709,7 +704,6 @@ We will focus on these four months to cluster the importations based on the good
 
 <h2 style="color:#87CEEB">Top Countries Exporting to the Philippines from 2015-2022</h2>
 
-***
 ```python
 yearly_top15_countries_dv()
 fig_caption(f'Dutiable value per Year', 'The dutiable value of China consistently remained number 1 among other countries.')
@@ -733,7 +727,6 @@ Similar to dutiable values, 9 out of the 10 countries with highest duties and ta
 
 <h2 style="color:#87CEEB">Top Chapters of Goods Imported</h2>
 
-***
 Harmonized System Codes (HS Codes) are a standardized international classification system used to identify goods in international trade. It is a multi-purpose commodity description and coding system that assigns a unique code to every product traded internationally. The HS Codes are used by customs authorities worldwide to monitor and regulate the import and export of goods. The HS system provides a uniform basis for the collection of customs duties and taxes, as well as statistical information on trade. The HS Codes are maintained by the World Customs Organization (WCO) and are updated periodically to reflect changes in the world economy and trade patterns.
 
 The member countries of the Association of Southeast Asian Nations (ASEAN), which the Philippines belong to, use the ASEAN Harmonized Tariff Nomenclature (AHTN) to classify goods for the purpose of trade and customs. The AHTN is based on the HS (Harmonized System) of product classification, but has been modified to take into account the specific requirements and trade patterns of ASEAN member countries. The AHTN provides a common set of product codes and definitions that are used by ASEAN member countries to determine the tariffs and other trade measures that apply to imported goods. The use of the AHTN helps to simplify trade and reduce the costs associated with customs procedures, making it easier for businesses to trade within the ASEAN region.
@@ -765,7 +758,6 @@ This section discusses the different months which exhibited surges in dutiable v
 
 <h2 style="color:#87CEEB">First spike which occured on November 2016</h2>
 
-***
 ```python
 # Load the two pickled files for 2016 and 2015
 file1 = 'pickles/china_svd_new_2016-11.pkl'
@@ -1356,7 +1348,6 @@ for k, ax in zip(trange(2, 11), ax):
 
 <h2 style="color:#87CEEB">Hierarchical Clustering</h2>
 
-***
 ```python
 links = ['single', 'complete', 'average', 'ward']
 try:
