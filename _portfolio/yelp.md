@@ -578,5 +578,5 @@ The recommendation system could incorporate external factors that might influenc
 
 <h2>ACKNOWLEDGEMENT</h2>
 
-This project was done with my Sub Learning Team, Frances Divina Egango.
+I completed this project with my Sub Learning Team, Frances Divina Egango.
 

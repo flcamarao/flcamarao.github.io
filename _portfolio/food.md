@@ -794,5 +794,5 @@ The team is confident in the potential of our recommendation system, and we have
 
 <h2>ACKNOWLEDGEMENT</h2>
 
-This project was done with my Learning Team, Frances Divina Egango, Jed Alvin Guinto, Jose Ramon Jimenez and Bernadette Obiso.
+I completed this project with my Learning Team, which consisted of Frances Divina Egango, Jed Alvin Guinto, Jose Ramon Jimenez, and Bernadette Obiso.
 

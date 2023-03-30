@@ -1,6 +1,7 @@
 ---
 title: "Artificial K-Intelligence"
 excerpt: "Using Explainable AI to Decipher the Complex World of K-Dramas<br /><img src='/images/kdrama/1.png'>"
+date: March 20, 2023
 collection: portfolio
 ---
 
@@ -498,7 +499,9 @@ This project was limited to data from a single source, the TMDB KDramas 2022 dat
 [ref]: #contents
 [Back to Table of Contents][ref]
 
+<h2>ACKNOWLEDGEMENT</h2>
 
+I completed this project with my Learning Team, which consisted of Frances Divina Egango, Jed Alvin Guinto, Jose Ramon Jimenez, and Bernadette Obiso.
 
 
 

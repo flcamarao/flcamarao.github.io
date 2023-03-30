@@ -1455,7 +1455,7 @@ for i, (eps, (optics, cluster_labels)) in enumerate(optics_dict.items()):
 
 <h2>ACKNOWLEDGEMENT</h2>
 
-This project was done with my Sub Learning Team, Allan Geronimo and Frances Divina Egango.
+I completed this project with my Sub Learning Team, which consisted of Frances Divina Egango and Allan Geronimo.
 
 
 
