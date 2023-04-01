@@ -100,6 +100,8 @@ Portfolio
   * Document Tracking System
   * Covid-19 Tracking System
   * Vaccination System
+  * Telemedicine System
+  * Library System
 
 * Data Science Projects
   * Machine Learning and Artificial Intelligence
