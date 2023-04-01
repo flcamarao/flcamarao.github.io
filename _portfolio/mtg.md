@@ -1,6 +1,6 @@
 ---
 title: "Magic the Gathering: Winning Not by What (Colors) You Play, but by How You Play"
-excerpt: "A closer look into “...a real-world game for which determining the winning strategy is non-computable."<br /><img src='/images/mtg/1.png'>"
+excerpt: "A closer look into ...a real-world game for which determining the winning strategy is non-computable.<br /><img src='/images/mtg/1.png'>"
 date: Novenmber 7, 2022
 collection: portfolio
 ---
