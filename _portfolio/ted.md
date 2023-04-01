@@ -1,6 +1,6 @@
 ---
 title: "WanTED: Data Science"
-excerpt: "Bringing you the Top 10 Data Science Videos on the Youtube channel<br /><img src='/images/ted/1.png'>"
+excerpt: "Web Scraping & Text Vectorization - Bringing you the Top 10 Data Science Videos on the Youtube channel<br /><img src='/images/ted/1.png'>"
 date: November 29, 2022
 collection: portfolio
 ---
