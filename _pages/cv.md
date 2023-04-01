@@ -93,25 +93,20 @@ Soft Skills
 * Collaboration and Teamwork
 * Adaptability and Continuous Learning
 
+Portfolio
+======
+* Web application
+  * Budgeting and Procument System
+  * Document Tracking System
+  * Covid-19 Tracking System
+  * Vaccination System
 
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Data Science Projects
+  * Machine Learning and Artificial Intelligence
+  * Big Data and Cloud Computing
+  * Network Science
+  * Data Mining and Wrangling
+  * Natural Language Processing
+  * GeoSpatial Analysis
+
+* You can view some examples of my work in my portfolio by clicking on this [link](https://flcamarao.github.io/portfolio/)
