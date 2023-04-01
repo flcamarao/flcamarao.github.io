@@ -1,5 +1,5 @@
 ---
-title: "**Paws and Reflect: Which Dog Should I Select?"
+title: "Paws and Reflect: Which Dog Should I Select?"
 excerpt: "Application of Web Scraping and Dimentionality Reduction<br /><img src='/images/dog/1.png'>"
 date: December 6, 2022
 collection: portfolio
