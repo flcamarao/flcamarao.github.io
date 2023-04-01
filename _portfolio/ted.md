@@ -605,7 +605,7 @@ print('The AUC-PR for the first Video as query: %0.2f.' %
 
 # Conclusion
 
-<ins><font size="3">**The Problems We Wanted To Solve**<ins>
+**The Problems We Wanted To Solve**
 
 The `Information Retrieval` pipeline provided a systematic way of solving the following problems we set at the beginning:
 
@@ -613,13 +613,13 @@ The `Information Retrieval` pipeline provided a systematic way of solving the fo
 
 2) **How do we yield results that are most similar and relevant to the user?**
 
-<ins><font size="3">**The Steps We Followed To Solve The Problems**<ins>
+**The Steps We Followed To Solve The Problems**
    
 ***Data Extraction*** of the video title, playlist, and description through `Youtube API V3` from a specified `channel_id`, which for this report's use case is the TED Talk Youtube Channel was conducted. Then ***Data Cleaning*** was performed to ensure that the data is free of duplicates and nulls. Subsequently, ***Data Preprocessing*** was completed through application of the BoW, Cosine Similarity, Measurement of Distance between Vectors, and Vectorizer in order to convert the corpus of data into a bag of words, vectorize the query and mapping it to the corpus, define cosine similarity, measure the distance between two vectors, and catch vectors that are similar but far apart in terms of Euclidean distance due to the size of the document.
 
 In the ***Information Retrieval Implementation*** we used "Data Science" as query to test the `Information Retrieval` pipeline and evaluate the Top 10 Search Results.
     
-<ins><font size="3">**Conclusion: The Results Solved The Problems But The Stats Could Still Be Improved**<ins>
+**Conclusion: The Results Solved The Problems But The Stats Could Still Be Improved**
     
 The Top 10 Data Science Videos featured renowned personalities in the field of data architecture, data engineering, health data and technology, and applied computational statistics on data.
     
@@ -638,7 +638,7 @@ Upon comparison of the ***Information Retrieval Implementation Results*** with t
 | 0.20 | 0.22 | 0.21 | 0.21 | 0.20 | 0.05 |
     
 
-<ins><font size="3">**More Insights**<ins>
+**More Insights**
     
 The ***Exploratory Data Analysis of the Database and Information Retrieval Implementation*** features a quick overview of our corpus, through three plots showing the number of videos per playlist, the leading playlists in terms of video count, and the lagging ones or the ones with the least count of videos at Section 8.2.1 of this report. The plot shows the following insights:
     
