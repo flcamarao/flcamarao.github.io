@@ -439,17 +439,20 @@ print(df_power['power'].unique())
 **Variable Power Examples and Explanation**
 
 * An example of an MTG Card with ∞ (infinity) is `Infinity Elemental`. It has infinite power such that gaining or losing power doesn't affect it, but it can still be affected by an ability that sets the power to a specific value.
-<img src='/images/mtg/20.png'>
+
+<center><img src='/images/mtg/20.png'></center>
 <center>Figure 03. Infinity Element MTG Card. [8]</center>
 
 <br><br>
 * An example of an MTG card with * (asterisk) is `Mortivore`. The value of its power depends on the number of creatures in all graveyards. Other cards, such as *², act similarly but squared. Asterisk indicates that its power depends on some in-game variable (e.g., graveyard card counts, player hand card count).
-<img src='/images/mtg/21.png'>
+
+<center><img src='/images/mtg/21.png'></center>
 <center>Figure 04. Mortivore MTG Card. [8]</center>
 
 <br><br>
 * An example of an MTG card with 1+* (base number + asterisk) is `Nighthawk Scavenger`. Its power has a base value of 1, then added to the number of card types among cards in the opponent's graveyard. Base number + asterisk indicates a base value for power but is added with a power value dependent on some in-game variable.
-<img src='/images/mtg/22.png'>
+
+<center><img src='/images/mtg/22.png'></center>
 <center>Figure 05. Nighthawk Scavenger MTG Card. [8]</center>
 
 ### Static Power Values
@@ -554,25 +557,21 @@ print(df_tough['toughness'].unique())
 **Variable Toughness Examples and Explanation**
 
 * An example of an MTG Card with +4 (+ number) is `Multi-Headed`. This card is an augment card with no toughness value, but the +4 can be added to other cards.
-<img src='/images/mtg/32.png'>
+
+<center><img src='/images/mtg/32.png'></center>
 <center>Figure 06. Multi-Headed MTG Card. [8]</center>
 
 <br><br>
 * An example of an MTG card with ? (question mark) is `Loopy Lobster`. The value of its toughness evolves through time. Specific values are listed in the card text.
-<img src='/images/mtg/33.png'>
+
+<center><img src='/images/mtg/33.png'></center>
 <center>Figure 07. Loopy Lobster MTG Card. [8]</center>
 
 <br><br>
 * An example of an MTG card with 99 (large number) is `B.F.M. (Big Furry Monster)`. It is divided into two cards and can only be played when both are on the playing field. The toughness value is valid, but it has special requirements.
-<table>
-<tr>
-     <td>
-<img src='/images/mtg/34.png'>
-     </td><td>
-     <img src='/images/mtg/35.png'>
-     </td>
-     </tr>
-     </table>
+
+<center><img src='/images/mtg/34.png'></center>
+<center><img src='/images/mtg/35.png'></center>
 <center>Figure 08. B.F.M. (Big Furry Monster) MTG Card. [8]</center>
 
 ### Static Toughness Values
@@ -642,7 +641,7 @@ Although technically, `Gleemax` is playable using an infinite mana combination*,
 
 *The player could use some infinite mana combo like `High Tide`+`Candelabra of Tawnos`.
 
-<img src='/images/mtg/45.png'>
+<center><img src='/images/mtg/45.png'></center>
 <center>Figure 09. Gleemax MTG Card.</center>
 
 ```python
