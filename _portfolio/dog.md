@@ -9,11 +9,11 @@ collection: portfolio
 
 <h1 style="color:#DA5F70">Executive Summary</h1>
 
-<b><ins>Paws-ing and Reflecting on Selecting a Dog? The Solution is Here for You</b><ins>    
+<ins><b>Paws-ing and Reflecting on Selecting a Dog? The Solution is Here for You</b><ins>    
 
 As an aspiring dog owner paws-es and reflects on which dog he/she should select, the team developed a solution to find the intelligent match between an aspiring dog owner and the dog that best fits his/her lifestyle and preferences.
     
-<b><ins>Dimensionality Reduction and Information Retrieval Pipeline</b><ins>
+<ins><b>Dimensionality Reduction and Information Retrieval Pipeline</b><ins>
     
 To go about the solution, the team performed the following:
     
@@ -23,7 +23,7 @@ To go about the solution, the team performed the following:
 5) **Information Retrieval** through **cosine distance** to yield the closest match to the dog query entered by the aspiring dog owner;and<br>
 6) **Recommendation** of the Top 3 Dogs that best match the features reflecting the aspiring dog owner's preferences and lifestyle.
 
-<b><ins>Results, Insights, and Business Value</b><ins>
+<ins><b>Results, Insights, and Business Value</b><ins>
 
 Using PCA and NMF, the team was able to: i) find out that the minimum PCs to achieve at least 80% cumulative variance explained is 8; ii) determine that 7 is the optimal number of latent factors; and iii) uncover 7 clusters of dogs classified by the top features per latent factor.
 
@@ -46,7 +46,7 @@ Cluster 8: Socially Behaved Dogs <br>
     
 The business value lies in the potential of the solution to serve as a tool (in a kiosk or an app) that pet store owners can use in converting inquiries and clicks into sales. Interested and aspiring dog owners can visit the pet store, the website, or the app and be led to the **Paws and Reflect Solution** to help them make the decision on which dog to select and ultimately welcome to his/her home and family.
     
-<b><ins>Outlook</b><ins>
+<ins<b>>Outlook</b><ins>
 
 While the initial gains in the **Paws and Reflect Solution** obtained in this Project have exceeded the performance threshold expectations set by the team, future studies can still be conducted using more data and other sophisticated clustering methods.
 
