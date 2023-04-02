@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Hey there! Welcome to my CV. Here are some highlights of what I've accomplished:"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -49,6 +49,7 @@ Digital Governance Awards - DICT, NICP, DILG
 * 2019 - Best in eGOV Systems for Global Competitiveness Award (G2W) - First Place (e)
 
 Outstanding Employee of the Year 2020
+
 Outstanding Employee of the Semester from January to June 2020
 
 Portfolio
@@ -124,4 +125,4 @@ Soft Skills
 * Collaboration and Teamwork
 * Adaptability and Continuous Learning
 
-* You can view some examples of my work in my portfolio by clicking on this [link](https://flcamarao.github.io/portfolio/)
+You can view some examples of my work in my portfolio by clicking on this [link](https://flcamarao.github.io/portfolio/)
