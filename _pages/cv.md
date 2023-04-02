@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+
+
 Education
 ======
 * M.S. in Data Science, Asian Institute of Management, 2022 - 2023
@@ -18,9 +20,16 @@ Work experience
 ======
 City Government of Baguio
 * 2021 - Present: OIC - IT Officer II
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Formulate and execute the organization's overarching IT strategy, ensuring alignment with business objectives and the effective deployment of technological resources.
+  * Supervise the administration and maintenance of IT infrastructure, encompassing hardware, software, networks, and data centers, while guaranteeing optimal performance and robust security measures.
+  * Provide leadership to the IT department, overseeing staff management, establishing performance benchmarks, and facilitating professional development opportunities.
+  * Collaborate with executive leadership and key stakeholders to ascertain IT requirements, devise solutions, and prioritize projects that reinforce organizational goals.
+  * Manage and optimize IT budgets, guaranteeing resource allocation is both strategic and efficient in meeting the organization's demands.
+  * Develop and enforce IT policies, protocols, and best practices, safeguarding security, data integrity, and adherence to regulatory standards.
+  * Assess and adopt cutting-edge technologies and innovative solutions to stimulate digital transformation and enhance business processes.
+  * Oversee IT risk management and disaster recovery strategies, ensuring business continuity and comprehensive data protection.
+  * Cultivate solid relationships with external vendors and partners, negotiating contracts and supervising procurement for IT equipment and services.
+  * Act as the IT Divisions's representative at executive meetings, delivering performance metrics, project updates, and strategic counsel to inform executive decision-making.
 
 * 2019 - 2021: Information Systems Analyst III (Lead Systems Architect)
   * Github University
