@@ -1,6 +1,6 @@
 ---
 title: "Pressure's off the Menu! Enjoyable Plating for Healthy Living"
-excerpt: "Recommender System of Delicious and Healthy Recipes for Hypertensive Eaters<br /><img src='/images/food/1.png'>"
+excerpt: "Applying clustering and recommender system techniques, such as collaborative filtering, can enable the development of a personalized recipe recommendation system that takes into account both culinary preferences and nutritional requirements, particularly for individuals with hypertension.<br /><img src='/images/food/1.png'>"
 date: March 13, 2023
 collection: portfolio
 ---

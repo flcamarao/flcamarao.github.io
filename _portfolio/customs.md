@@ -1,6 +1,6 @@
 ---
 title: "Uncovering Hidden Clusters: Analyzing the Bureau of Customs Import Dataset"
-excerpt: "The Benefits and Challenges of Applying Unsupervised Clustering Techniques for Data Analysis<br /><img src='/images/customs/1.png'>"
+excerpt: "Applying various clustering techniques, including representative, hierarchical, and density-based methods, can help identify potential clusters in the importation of goods by the Bureau of Customs. By uncovering patterns and similarities in the data, these techniques can provide insights into how to optimize the importation process, improve risk management strategies, and enhance revenue collection efforts.<br /><img src='/images/customs/1.png'>"
 date: February 8, 2023
 collection: portfolio
 ---

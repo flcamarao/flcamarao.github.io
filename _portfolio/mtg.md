@@ -1,6 +1,6 @@
 ---
 title: "Magic the Gathering: Winning Not by What (Colors) You Play, but by How You Play"
-excerpt: "EDA - A closer look into ...a real-world game for which determining the winning strategy is non-computable.<br /><img src='/images/mtg/1.png'>"
+excerpt: "Data mining and wrangling techniques can be used to gain insights into the complexity of Magic: The Gathering and how it affects gameplay to increase wins. By collecting and cleaning data on various gameplay elements, such as card types, player strategies, and game outcomes, data mining and wrangling can help uncover patterns and relationships that contribute to winning strategies. This can provide valuable information for players and game designers looking to optimize gameplay and enhance the overall gaming experience.<br /><img src='/images/mtg/1.png'>"
 date: Novenmber 7, 2022
 collection: portfolio
 ---

@@ -137,4 +137,4 @@ Soft Skills
 * Collaboration and Teamwork
 * Adaptability and Continuous Learning
 
-You can view some examples of my work in my portfolio by clicking on this [link](https://flcamarao.github.io/portfolio/)
+You can view some examples of my work in my portfolio by clicking on this [link](https://flcamarao.github.io/portfolio/).

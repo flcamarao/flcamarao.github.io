@@ -1,6 +1,6 @@
 ---
 title: "Dota 2 Match Analysis: Unleashing the Potential of LightGBM Machine Learning Techniques"
-excerpt: "Application of machine learning model for accurate winner prediction in competitive gaming <br /><img src='/images/dota2/1.png'>"
+excerpt: "Machine learning models, such as LightGBM, can be applied to accurately predict the winner in competitive gaming. LightGBM is a high-performance framework that can quickly build models with high accuracy. By using historical data on gameplay, player performance, and other relevant factors, a LightGBM model can be trained to predict the outcome of a match. This can be valuable for gamers, esports enthusiasts, and betting companies looking to make informed decisions based on data-driven insights.<br /><img src='/images/dota2/1.png'>"
 date: November 25, 2022
 collection: portfolio
 ---

@@ -1,6 +1,6 @@
 ---
 title: "A World of Flavors: Exploring Cities and Other Food Choices"
-excerpt: "A Restaurant Recommender System using the Yelp Business Database<br /><img src='/images/yelp/1.png'>"
+excerpt: "By combining collaborative and content-based filtering approaches, it is possible to develop a restaurant recommendation system that suggests the most highly rated and similar restaurants in a given location. This system can take into account both the user's past ratings and preferences (collaborative filtering), as well as the restaurant's characteristics, such as cuisine, ambiance, and customer reviews (content-based filtering).<br /><img src='/images/yelp/1.png'>"
 date: March 11, 2023
 collection: portfolio
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Paws and Reflect: Which Dog Should I Select?"
-excerpt: "Application of Web Scraping and Dimentionality Reduction<br /><img src='/images/dog/1.png'>"
+excerpt: "The combination of Web Scraping and Dimensionality Reduction techniques can facilitate the analysis and selection of dog breeds. By using an API for breed information, web scraping can collect a large amount of data on various dog breeds. Dimensionality reduction techniques, such as Principal Component Analysis (PCA), can then help identify the most important factors that differentiate the breeds. This can ultimately simplify the decision-making process for selecting a dog breed that best fits an individual's preferences and lifestyle.<br /><img src='/images/dog/1.png'>"
 date: December 6, 2022
 collection: portfolio
 ---

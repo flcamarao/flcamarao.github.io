@@ -1,6 +1,6 @@
 ---
 title: "Artificial K-Intelligence"
-excerpt: "Using Explainable AI to Decipher the Complex World of K-Dramas<br /><img src='/images/kdrama/1.png'>"
+excerpt: "Using Explainable AI, such as the Shap method, can provide valuable insights into the factors contributing to the popularity of K-dramas, which are renowned for their intricate and multifaceted storylines.<br /><img src='/images/kdrama/1.png'>"
 date: March 20, 2023
 collection: portfolio
 ---

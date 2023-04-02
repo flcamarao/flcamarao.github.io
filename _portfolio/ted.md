@@ -1,6 +1,6 @@
 ---
 title: "WanTED: Data Science"
-excerpt: "Web Scraping & Text Vectorization - Bringing you the Top 10 Data Science Videos on the Youtube channel<br /><img src='/images/ted/1.png'>"
+excerpt: "Using Web Scraping with the Youtube API and Text Vectorization techniques can help identify the top 10 data science videos on a particular Youtube channel. By web scraping through the Youtube API, a large amount of data on the videos can be collected, including titles, descriptions, and other metadata. Text vectorization can then be applied to transform the textual data into numerical vectors that capture the semantic meaning of the text. By analyzing the vectorized data, the top 10 data science videos on the channel can be identified, providing a valuable resource for individuals interested in the field.<br /><img src='/images/ted/1.png'>"
 date: November 29, 2022
 collection: portfolio
 ---
