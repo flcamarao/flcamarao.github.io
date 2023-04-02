@@ -20,33 +20,36 @@ Work experience
 ======
 City Government of Baguio
 * 2021 - Present: OIC - IT Officer II
-  * Formulate and execute the organization's overarching IT strategy, ensuring alignment with business objectives and the effective deployment of technological resources.
-  * Supervise the administration and maintenance of IT infrastructure, encompassing hardware, software, networks, and data centers, while guaranteeing optimal performance and robust security measures.
-  * Provide leadership to the IT department, overseeing staff management, establishing performance benchmarks, and facilitating professional development opportunities.
-  * Collaborate with executive leadership and key stakeholders to ascertain IT requirements, devise solutions, and prioritize projects that reinforce organizational goals.
-  * Manage and optimize IT budgets, guaranteeing resource allocation is both strategic and efficient in meeting the organization's demands.
-  * Develop and enforce IT policies, protocols, and best practices, safeguarding security, data integrity, and adherence to regulatory standards.
-  * Assess and adopt cutting-edge technologies and innovative solutions to stimulate digital transformation and enhance business processes.
-  * Oversee IT risk management and disaster recovery strategies, ensuring business continuity and comprehensive data protection.
-  * Cultivate solid relationships with external vendors and partners, negotiating contracts and supervising procurement for IT equipment and services.
-  * Act as the IT Divisions's representative at executive meetings, delivering performance metrics, project updates, and strategic counsel to inform executive decision-making.
+  * Formulate and execute the organization's IT strategy, aligning it with business objectives and optimizing the deployment of technological resources.
+  * Supervise IT infrastructure and provide leadership to the IT department, fostering professional development and ensuring robust security measures.
+  * Collaborate with executive leadership to identify IT requirements, prioritize projects, and manage budgets for strategic and efficient resource allocation.
+  * Develop IT policies and adopt innovative technologies to drive digital transformation, while overseeing risk management and disaster recovery strategies.
+  * Represent the IT department at executive meetings, cultivating relationships with external vendors and delivering performance metrics and strategic counsel.
 
 * 2019 - 2021: Information Systems Analyst III (Lead Systems Architect)
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Guided a team of analysts in evaluating and implementing technology solutions, including systems development, while identifying opportunities for business process improvement through information systems.
+  * Developed system specifications and collaborated with cross-functional teams to integrate information systems into the organization's workflow.
+  * Conducted testing and quality assurance, managed project timelines, and delegated tasks to ensure optimal performance and adherence to standards.
+  * Provided expertise on best practices, emerging technologies, and industry trends, while maintaining relationships with external vendors and partners.
+  * Assisted with IT policies and procedures, and delivered ongoing training and support to end-users for a high level of satisfaction with implemented systems.
 
 * 2016 - 2019: Information Systems Analyst I (Systems Architect)
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Evaluated, designed, and implemented technology solutions, including systems development, to support business objectives and optimize organizational efficiency.
+  * Developed system specifications and collaborated with cross-functional teams for seamless integration and development of information systems into the workflow.
+  * Conducted testing and quality assurance, while assisting with project management tasks to ensure successful project completion and systems development.
+  * Stayed current with best practices, emerging technologies, and industry trends, while maintaining relationships with external vendors and partners.
+  * Supported IT policies and procedures, and provided training and support to end-users for a high level of satisfaction with implemented systems and development processes.
 
 * 2015 - 2016 : Application Developer I (Software Engineer)
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+  * Designed, developed, and maintained custom software applications, collaborating with cross-functional teams to translate requirements into technical specifications.
+  * Employed industry best practices and methodologies, such as Agile and DevOps, to create scalable, secure, and high-performing applications.
+  * Conducted thorough testing and debugging, while assisting with deployment and integration of applications into the organization's infrastructure.
+  * Actively participated in code and design reviews, staying current with emerging trends and technologies to foster continuous improvement within the team.
+  * Provided ongoing support and maintenance, and supported IT policies and procedures to ensure security, data integrity, and regulatory compliance.
 
 * 2013 - 2015 : Web Developer (Freelance)
+  * Collaborated with clients to conceptualize, design, and develop customized web solutions using various programming languages, frameworks, and tools, while adhering to best practices and industry standards.
+  * Managed project timelines, resources, and deliverables, ensuring seamless integration of front-end and back-end components, and providing ongoing support and maintenance for clients' websites.
 
 Awards
 ======
