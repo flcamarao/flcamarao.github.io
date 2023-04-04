@@ -1046,5 +1046,9 @@ The system may be further improved by conducting the following:
 [2] yahoo.com (2020, July 22) *Here's Why Your Dog Knows When It's Time For Food and Walks, According to Experts*. Retrieved December 1, 2022 at https://www.yahoo.com/lifestyle/am-imagining-things-dog-tell-200136032.html <br><br>
 [3] bing.com (n.d.) *What breed is that dog?*. Retrieved December 6, 2022 at https://www.bing.com/visualsearch/Microsoft/WhatDog <br><br>
 [4] American Knnel Club (n.d.) *Dog Breeds*. Retrieved December 6, 2022, from https://www.akc.org/dog-breeds/ <br><br>
-[5] dogtime.com (n.d.) *Small Munsterlander Pointer*. Retrieved November 30, 2022 at https://dogtime.com/dog-breeds/small-munsterlander-pointer#/slide/1. <br><br>
+[5] dogtime.com (n.d.) *Small Munsterlander Pointer*. Retrieved November 30, 2022 at https://dogtime.com/dog-breeds/small-munsterlander-pointer#/slide/1. 
+
+<h2>ACKNOWLEDGEMENT</h2>
+
+I completed this project with my Learning Team, which consisted of Ma. Lair Balogal, Felipe Garcia Jr., Vanessa delos Santos, and Josemaria Likha Umali.
 
