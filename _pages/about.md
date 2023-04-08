@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Unleashing the power of data & code, one line at a time! I'm a Data Scientist, Systems Architect, and Software Engineer on a mission to transform complex problems into elegant solutions. Armed with curiosity and creativity, I venture into the realms of data, technology, and innovation, striving to make a lasting impact. Let's connect and create something extraordinary together!
+Unleashing the power of data & code, one line at a time! I'm a Digital Transformer, Data Scientist, Systems Architect, and Software Engineer on a mission to transform complex problems into elegant solutions. Armed with curiosity and creativity, I venture into the realms of data, technology, and innovation, striving to make a lasting impact. Let's connect and create something extraordinary together!
 
 
 
