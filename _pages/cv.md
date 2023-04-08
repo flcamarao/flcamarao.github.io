@@ -53,7 +53,7 @@ City Government of Baguio
 
 Awards
 ======
-Digital Governance Awards - DICT, NICP, DILG
+Digital Governance Awards - [DICT](https://dict.gov.ph/), [NICP](https://nicp.org.ph/), [DILG](https://www.dilg.gov.ph/)
 * 2021 - Best in Government Internal Operations Award (G2I) - First Place (a)
 * 2021 - Best in Government Covid-19 Pandemic Response Award (G2P) - First Place (b)
 * 2021 - Best in Interoperability Award (G2G) - First Place (c)
