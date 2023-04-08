@@ -671,3 +671,6 @@ We were able to get a precision and recall of **0.20** and **0.22**, respectivel
 [14] Selanikio, J. (n.d.) *Dr. Joel Selanikio combines technology and data to help solve global health challenges*. Retrieved November 24, 2022, from https://www.ted.com/speakers/joel_selanikio <br><br>
 [15] Williams, T. (n.d.) *Professor | Author  Speaker | TV Host*. Retrieved November 24, 2022, from https://www.talithiawilliams.com/
 
+<h2>ACKNOWLEDGEMENT</h2>
+
+I completed this project with my Sub Learning Team, which consisted of Felipe Garcia Jr. and Vanessa delos Santos.

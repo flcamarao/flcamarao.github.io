@@ -988,3 +988,7 @@ How a player moves from the equal position to the winning position requires stra
 [6]  thiagoam2 (2019, Sep 11) Nature Promise [Online Image]. Reddit. Retrieved October 25, 2022 from https://www.reddit.com/r/magicTCG/comments/d2d4pe/i_painted_a_card_and_want_to_know_what_you_think/ <br><br>
 [7] Magic: The Gathering (n.d.) MTG Fandom. Retrieved October 25, 2022 from https://mtg.fandom.com/wiki/Magic:_The_Gathering <br><br>
 [8] [Magic: The Gathering Cards]. Magic The Gathering. Retrieved October 25, 2022 from https://magic.wizards.com/en 
+
+<h2>ACKNOWLEDGEMENT</h2>
+
+I completed this project with my Sub Learning Team, which consisted of Felipe Garcia Jr. and Vanessa delos Santos.
