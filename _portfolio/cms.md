@@ -1,6 +1,6 @@
 ---
 title: "Comprehensive Medicare Data Analysis for Insurance Companies"
-excerpt: "In this study, the team leveraged Big Data techniques to analyze the CMS Medicare data and provide valuable insights for insurance companies to optimize their policies and coverage options. By effectively handling the large-scale dataset, they were able to uncover patterns in healthcare service utilization, payment dynamics, and drug claims among insured policyholders, leading to actionable recommendations for improved healthcare delivery.<br /><img src='/images/cms/1.png'>"
+excerpt: "In this study, the team leveraged Big Data techniques to analyze the CMS Medicare data and provide valuable insights for insurance companies to optimize their policies and coverage options. By effectively handling the large-scale dataset, we were able to uncover patterns in healthcare service utilization, payment dynamics, and drug claims among insured policyholders, leading to actionable recommendations for improved healthcare delivery.<br /><img src='/images/cms/1.png'>"
 date: May 15, 2023
 collection: portfolio
 ---
