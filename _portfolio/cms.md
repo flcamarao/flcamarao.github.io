@@ -4,6 +4,7 @@ excerpt: "In this study, the team leveraged Big Data techniques to analyze the C
 date: May 15, 2023
 collection: portfolio
 ---
+"Under Construction" 
 
 <img src='/images/cms/1.png'>
 
@@ -1075,6 +1076,7 @@ Refer to Table 1: Methodology Details for more details about each step.
         <td style="text-align: left; font-weight: bold; color:#0d2599">3.</td>
         <td style="text-align: left; font-weight: bold;  color:#0d2599">Data Analysis & Visualization</td>
         <td style="text-align: left; ">Utilize Apache Spark SQL or Spark DataFrame for descriptive analytics to uncover patterns and trends within the data. Conduct an analysis of procedure distribution, provider types, and costs to enhance insurance policies and coverage options. Finally, employ data visualization techniques to present the findings in a visually informative manner.</td>
+    </tr>
 </table>
 
 [Back to TOC](#TContents)
@@ -1112,7 +1114,7 @@ Specifically, the team chose and explored the following datasets containing Medi
 
     This is a dataset that contains information on the prescription drugs prescribed by healthcare providers who participate in Medicare Part D, which is the prescription drug benefit program for Medicare beneficiaries. Medicare Part D is designed to help individuals afford their prescription drug costs and is provided through private insurance companies that contract with Medicare. This also contains the total number of prescription fills that were dispensed and the total drug cost paid organized by prescribing National Provider Identifier (NPI), drug brand name (if applicable) and drug generic name for the years 2013 to 2016.
 
-    
+
 
 <h2>ACKNOWLEDGEMENT</h2>
 
